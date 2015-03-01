@@ -3,23 +3,74 @@ html
   head
     title Join the #{community} community on Slack!
     style.
+      * { box-sizing: border-box; }
       body {
         padding: 50px;
-        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        font: 14px "Lato", Helvetica, Arial, sans-serif;
+        color: #555459;
+      }
+      .container {
+        width: 960px;
+        margin: 0px auto;
+        position: relative;
+      }
+      h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        font-weight: 300;
       }
       input {
-        font-size: 24px;
-        width: 400px;
+        background: none repeat scroll 0% 0% #FFF;
+        border: 0px none;
+        border-radius: 0.25rem;
+        margin: 0.5rem 0.25rem;
+        padding: 0.75rem 1.25rem;
+        color: #555459;
+        font-weight: 700;
+        font-size: 1.1rem;
+        font-family: "Lato",sans-serif;
+        vertical-align: bottom;
+        height: 48px;
+        width: 800px;
+      }
+      .align-center {
+        text-align: center !important;
+      }
+      .slack-logo-wrapper {
+        text-align: center !important;
+      }
+      .slack-logo {
+        display: inline-block;
+        margin: 0px 0px 0px -5rem;
+        background-image: url("http://slack.global.ssl.fastly.net/895d/img/landing_slack_hash_wordmark_logo.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        width: 392px;
+        height: 149px;
+      }
+      .form {
+        padding: 1rem 1.3rem;
+        margin: 0px auto;
+        display: block;
+        background: none repeat scroll 0% 0% #3D4B5B;
+        text-align: center;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+        width: auto;
+        border-radius: 0.5rem;
       }
   body
-    h1 Join the #{community} community on Slack!
-    form(method="POST", action="/invite")#join-form
-      input(type="text", name="email", placeholder="Enter your email")#slack-email
-    script.
-      var form = document.getElementById('join-form');
-      var email = document.getElementById('slack-email')
-      form.addEventListener('submit', function(evt) {
-        if (!email.value) {
-          evt.preventDefault();
-        }
-      });
+    div.container
+      div.slack-logo-wrapper
+        div.slack-logo
+      h1.align-center Join the #{community} community on Slack!
+      div.form
+        form(method="POST", action="/invite")#join-form
+          input(type="text", name="email", placeholder="Enter your email")#slack-email
+      script.
+        var form = document.getElementById('join-form');
+        var email = document.getElementById('slack-email')
+        form.addEventListener('submit', function(evt) {
+          if (!email.value) {
+            evt.preventDefault();
+          }
+        });
